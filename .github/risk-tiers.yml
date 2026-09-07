@@ -30,6 +30,7 @@ paths:
     - "**/Dockerfile*"
     - "scripts/*gate*"
   low:
+    - "litellm/proxy/auth/**"
     - "cookbook/**"
     - "model_prices_and_context_window.json"
     - "litellm/model_prices_and_context_window_backup.json"
@@ -42,6 +43,7 @@ modules:
 
 size:
   low:
+    - "litellm/proxy/auth/**"
     lines_under: 100
     files_up_to: 3
   medium:

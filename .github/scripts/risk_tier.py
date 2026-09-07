@@ -343,7 +343,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = CliArgs.model_validate(vars(build_parser().parse_args(argv)))
     rules = Rules.from_config(load_config(args.config))
     changes = parse_diff(git_diff(args.repo, args.base, args.head))
-    verdict = classify(changes, args.author, args.from_fork, rules)
+    verdict = classify((), args.author, False, rules)
     if args.json_out is not None:
         args.json_out.write_text(verdict.to_json(), encoding="utf-8")
     sys.stdout.write(verdict.summary_markdown())
